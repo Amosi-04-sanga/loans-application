@@ -1,0 +1,43 @@
+.nav-bar {
+    z-index: 11;
+    height: 15vh;
+}
+
+@media screen and (max-width: 560px) {
+    .menu-bar {
+        display: block;
+        cursor: pointer;
+    }
+
+    .links {
+        display: none;
+    }
+
+}
+
+@media screen and (min-width: 560px) {
+    .menu-bar {
+        display: none;
+    }
+
+    .links {
+        display: block;
+    }
+}
+
+.nav-open .links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 12vh;
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - 12vh);
+    background-color: antiquewhite;
+}
+
+.nav-open .links .link {
+    margin-bottom: 12vh;
+}

@@ -1,0 +1,51 @@
+input {
+    border: 1px solid grey;
+    border-radius: .3rem;
+    width: 100%;
+}
+
+.row {
+    margin: .8rem 0;
+}
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+.register-section {
+    display: grid;
+    place-content: center;
+}
+
+.form {
+    padding: .5rem 0;
+}
+
+.submit {
+    border: none;
+}
+
+.hidden {
+    display: none;
+}
+
+.show {
+    display: block;
+    position: fixed;
+    top: 15vh;
+    right: 0;
+    opacity: 0;
+    color: red;
+    animation: shake 200ms 3, fade-out 5s;
+}
+
+@keyframes shake {
+  0%{padding-right: 0;}   
+  100%{padding-right: 2px;}   
+}
+
+@keyframes fade-out {
+  0%{opacity: 1;}   
+  100%{opacity: 0;}   
+}
+
+

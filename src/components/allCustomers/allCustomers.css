@@ -1,0 +1,33 @@
+.numberofclients {
+    color: blue;
+}
+
+.clients {
+    background-color: rgba(52, 98, 196,.2);
+    width: 60vw;
+    margin: auto;
+}
+
+.loading {
+    font-weight: 900;
+    height: 80vh;
+    display: grid;
+    place-content: center;
+    animation-name: text-glow;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes text-glow {
+  0%{color: black;}
+  100%{color: rgba(0, 0, 0,.8);}
+}
+
+.container {
+    counter-reset: clients-counter;
+}
+
+h2::before {
+    counter-increment: clients-counter;
+    content: counter(clients-counter) ". ";
+}

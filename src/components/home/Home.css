@@ -1,0 +1,38 @@
+header {
+    width: calc(100% - 5vw);
+    transition: all .5s ease-in-out;
+    padding: 3rem 1rem;
+    box-shadow: 0 0 3px 0 grey;
+    animation: hang 1s ;
+    transform: translateY(0);
+}
+
+@keyframes hang {
+    0%{transform: translateY(-10px);}
+    100%{transform: translateY(0);}
+}
+
+
+.terms-list,
+.work-time,
+.terms-desc {
+    margin-left: 10vw;
+}
+
+textarea {
+    width: 100%;
+}
+textarea::placeholder {
+    padding: .3rem;
+}
+textarea:focus {
+  border: none;
+  box-shadow: 0 0 5px 0 black;
+}
+
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
