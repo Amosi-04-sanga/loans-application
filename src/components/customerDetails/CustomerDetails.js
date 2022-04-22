@@ -44,7 +44,7 @@ const CustomerDetails = () => {
     navigate(0)
 
     } else {
-       alert("please enter amount!")
+       alert("please don't missout amount!")
     }
   }
 
