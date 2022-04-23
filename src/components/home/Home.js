@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import Nav from '../nav/Nav';
 import * as api from '../../API'
 import "./Home.css"
+import swal from 'sweetalert'
+
 
 const Home = () => {
   const [user, setUser] = useState({
@@ -31,7 +33,11 @@ const Home = () => {
           message: ""
         })
     } else {
-        alert("error!!!")
+        swal({
+          title: "error!",
+          text: "please fill all cresidentials",
+          dangerMode: true,
+        })
     }
   }
 

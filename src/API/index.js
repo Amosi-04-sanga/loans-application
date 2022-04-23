@@ -1,6 +1,7 @@
 import axios from 'axios'
 
-const url = "https://loans-services.herokuapp.com/"
+//const url = "https://loans-services.herokuapp.com/"
+const url = "http://localhost:5000/customers"
 const urlMsg = "http://localhost:5000/customers/messages"
 
 export const getAllCostomers = () => axios.get(url)

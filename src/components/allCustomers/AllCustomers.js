@@ -33,7 +33,7 @@ const AllCustomers = () => {
         {        
           details ? 
           details.map( detail => (
-             <div className="clients w-4/5 lg:w-2/3 p-2 mt-4">
+             <div key={detail.name} className="clients w-4/5 lg:w-2/3 p-2 mt-4">
                 <Link to={`/customers/${detail._id}`} >
                   <h2> {detail.name} </h2>
                 </Link>

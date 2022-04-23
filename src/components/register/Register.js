@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import Nav from '../nav/Nav'
-import FileBase from 'react-file-base64';
+import FileBase from 'react-file-base64'
 import * as api from '../../API'
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"
 
 import "./register.css"
 

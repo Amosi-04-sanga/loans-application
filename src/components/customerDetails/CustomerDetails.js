@@ -125,7 +125,7 @@ const CustomerDetails = () => {
                     client.refund ?
                       client.refund.map(obj => (
 
-                        <p className='day-refund mb-2' > {obj.amount}/= on {moment(obj.date).format("DD MMM, YYYY")} </p>
+                        <p key={Math.random()} className='day-refund mb-2' > {obj.amount}/= on {moment(obj.date).format("DD MMM, YYYY")} </p>
                       )) :
                       ""
                   }
