@@ -48,7 +48,7 @@ const CustomerDetails = () => {
     }
   }
 
-  const debtCalc = () => {
+/*  const debtCalc = () => {
 
     if (client) {
       const arr = client.refund
@@ -62,7 +62,7 @@ const CustomerDetails = () => {
     }
 
 
-  }
+  } */
 
   const popOutForm = () => {
     setIsActive(true)
