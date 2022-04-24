@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+import {BoxLoading} from 'react-loadingg'
 import Nav from '../nav/Nav'
 import * as api from '../../API'
 import moment from 'moment'
 import "./CustomerDetails.css"
+import swal from 'sweetalert'
 
 const CustomerDetails = () => {
   const navigate = useNavigate()
   const { id } = useParams()
-  const [client, setClient] = useState({})
+  const [client, setClient] = useState()
   const [amount, setAmount] = useState("")
   const [isActive, setIsActive] = useState(false)
   useEffect(() => {
@@ -44,26 +46,31 @@ const CustomerDetails = () => {
     navigate(0)
 
     } else {
-       alert("please don't missout amount!")
+       swal({
+         title: "error!",
+         text: "please fill amount!"
+       })
     }
   }
 
-/*  const debtCalc = () => {
+ const debtCalc = () => {
 
-    if (client) {
-      const arr = client.refund
+    const arr = client.refund
 
-      let sum = 0;
-      arr.forEach(item => {
-        sum += item.amount
-      });
+    let sum = 0
+    for (let i = 0; i < arr.length; i++) {
+      sum += Number(arr[i].amount)
+    }    
+    
+    const debt = client.loan - sum
 
-      console.log(sum);
-    }
-
-
-  } */
-
+    return debt
+  }
+  
+  const format3dig = (num) => {
+      return Number(num).toLocaleString()
+  }
+  
   const popOutForm = () => {
     setIsActive(true)
   }
@@ -99,8 +106,8 @@ const CustomerDetails = () => {
 
         <div className="container my-8 py-4">
           {
-            client ?
-              <div className="container-inner">
+            client ? 
+            <div className="container-inner">
 
                 <div className="client-photo-wrapper bg-blue-600 mx-auto p-px">
                   <img className='client-photo' src={client.photo} alt={client.name} />
@@ -112,8 +119,18 @@ const CustomerDetails = () => {
                     <li>Tell: {client.tell} </li>
                     <li>Home adress: {client.homeadress} </li>
                     <li>Loan date: {moment(client.createdAt).format("DD MMM, YYYY")} </li>
-                    <li>Loan amount: {client.loan}/= </li>
-                    <li>Amount left: {client.amount} </li>
+                    <li>Loan amount: { format3dig(client.loan) }/= </li>
+                    <li>
+                        Amount left: {" "}
+                        { format3dig(debtCalc()) <= "0" ?
+                            (
+                              api.removeCustomer(id),
+                              navigate("/customers")
+                            )
+                           :
+                          format3dig(debtCalc())
+                      }/=
+                    </li>
                   </ul>
 
 
@@ -125,14 +142,16 @@ const CustomerDetails = () => {
                     client.refund ?
                       client.refund.map(obj => (
 
-                        <p key={Math.random()} className='day-refund mb-2' > {obj.amount}/= on {moment(obj.date).format("DD MMM, YYYY")} </p>
+                        <p key={Math.random()} className='day-refund mb-2' > {format3dig(obj.amount)}/= on {moment(obj.date).format("DD MMM, YYYY")} </p>
                       )) :
                       ""
                   }
                 </div>
 
               </div> :
-              "loading..."
+            ( <h1 className='preloader' >
+               <BoxLoading/>
+            </h1> )
           }
         </div>
       </div>

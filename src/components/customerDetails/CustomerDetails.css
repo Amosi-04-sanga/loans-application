@@ -60,3 +60,7 @@ li::before,
     position: absolute;
     left: -2rem;
 }
+
+.preloader {
+    margin-top: 45vh;
+}

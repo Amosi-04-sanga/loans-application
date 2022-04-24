@@ -1,7 +1,8 @@
 import axios from 'axios'
 
 //const url = "https://loans-services.herokuapp.com/"
-const url = "https://loans-services.herokuapp.com/customers"
+const url = "https://loansoffice.herokuapp.com/customers"
+
 const urlMsg = "http://localhost:5000/customers/messages"
 
 export const getAllCostomers = () => axios.get(url)
@@ -14,4 +15,5 @@ export const getSingleCustomer = id => axios.get( `${url}/${id}` )
 
 export const updateCustomer = (customer,id) => axios.patch( `${url}/${id}`, customer )
 
+export const removeCustomer = (id) => axios.delete( `${url}/${id}` )
 
