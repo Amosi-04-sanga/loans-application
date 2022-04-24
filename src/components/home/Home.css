@@ -36,3 +36,7 @@ footer {
     align-items: center;
     justify-content: center;
 }
+
+svg path {
+    fill: rgb(73, 73, 134);
+}
